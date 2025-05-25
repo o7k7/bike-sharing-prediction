@@ -18,7 +18,8 @@ Overall performance has been increased dramatically from RMSE -53.050143 to RMSE
 
 ## Hyper parameter tuning
 ### How much better did your model preform after trying different hyper parameters?
-Model performance decreased from RMSE -35.618306 to -38.718382. Apparently, presets='best_quality' offers the most optimal configuration.
+Model performance decreased from RMSE -35.618306 to -38.718382. The biggest factor is the mismatch between wanting a very comprehensive and time-consuming training strategy (best_quality, num_bag_folds, num_bag_sets, high num_trials etc.) and the time I gave to implement that strategy (time_limit=900s). AutoGluon may have done its best in the time given, but it may not have been able to implement the entire strategy properly.
+Moreover, trying to run a large number of HPO trials in a limited time could've led to the model overfitting the internal validation datasets that AutoGluon uses. That is, the model looks good on these internal sets but its ability to generalize is reduced.
 
 ### If you were given more time with this dataset, where do you think you would spend more time?
 I would spend more time on data.
